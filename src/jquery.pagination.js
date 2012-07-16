@@ -218,7 +218,14 @@
 				}
 				return false;
 		});
-		
+		containers.bind('setMaxEntries', {maxEntries:maxentries}, function(evt, numEntries){
+			renderer.pc = new $.PaginationCalculator(numEntries, renderer.opts);
+			renderer.maxentries = numEntries;
+			links = renderer.getLinks(containers.data('current_page'), paginationClickHandler);
+			containers.empty();
+			links.appendTo(containers);
+			return false;
+		});
 		// When all initialisation is done, draw the links
 		links = renderer.getLinks(current_page, paginationClickHandler);
 		containers.empty();
