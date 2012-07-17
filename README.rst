@@ -134,6 +134,13 @@ custom events like this:::
 
 The event handlers check if the new page number is inside the boundaries of the number of pages and ignore the event if it is outside.
 
+If you filter your search results and need to update the amount of pages it renders,
+call this custom event.
+
+	// Update total number of results and re-render links
+	$('#News-Pagination").trigger('setMaxEntries', 100);
+
+
 Version history
 ---------------
 Version 1.0 
@@ -174,6 +181,10 @@ Version 2.2
 +++++++++++
 alexhayes added an option to avoid calling the callback when the plugin is
 initialized.
+
+Version 2.3
++++++++++++
+atorres757 added an event handler to update max entries and re-render links.
 
 Future Plans
 ------------
